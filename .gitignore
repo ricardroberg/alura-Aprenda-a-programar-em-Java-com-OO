@@ -1,0 +1,39 @@
+##############################
+## IntelliJ
+############################## 
+out/
+.idea/
+.idea_modules/
+_.iml
+_.ipr
+_.iws
+
+##############################
+## Java
+##############################
+.mtj.tmp/
+_.class
+_.jar
+_.war
+_.ear
+_.nar
+hs_err_pid_
+replay_pid\*
+
+##############################
+## Eclipse
+##############################
+.settings/
+bin/
+tmp/
+.metadata
+.classpath
+.project
+_.tmp
+_.bak
+_.swp
+_~.nib
+local.properties
+.loadpath
+.factorypath
+
