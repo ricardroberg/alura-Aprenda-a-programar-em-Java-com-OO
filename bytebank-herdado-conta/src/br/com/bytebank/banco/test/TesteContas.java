@@ -10,7 +10,7 @@ public class TesteContas {
     public static void main(String[] args) throws SaldoInsuficienteException {
 
         ContaEspecial ce = new ContaEspecial(1339, 444444);
-        ce.getSaldo();
+        System.out.println("CE: " + ce.getSaldo());
 
         ContaCorrente cc = new ContaCorrente(1337, 145312);
         cc.deposita(100.0);
