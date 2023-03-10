@@ -1,5 +1,6 @@
 package br.com.bytebank.banco.modelo;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
@@ -9,13 +10,13 @@ import java.util.Comparator;
  */
 
 
-public abstract class Conta extends Object implements Comparable<Conta> {
+public abstract class Conta extends Object implements Comparable<Conta>, Serializable {
 
     private static int total = 0;
     protected double saldo;
     private int agencia;
     private int numero;
-    private Cliente titular;
+    private transient Cliente titular; // não faz parte da serialização então classe Cliente não precisa implementar Serializable
 
     /**
      * Construtor para inicializar o objeto Conta a partir da agencia e numero
