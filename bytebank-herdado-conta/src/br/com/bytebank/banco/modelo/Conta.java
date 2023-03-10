@@ -1,5 +1,7 @@
 package br.com.bytebank.banco.modelo;
 
+import java.util.Comparator;
+
 /**
  * Classe representa a moldura de uma conta
  *
@@ -7,7 +9,7 @@ package br.com.bytebank.banco.modelo;
  */
 
 
-public abstract class Conta {
+public abstract class Conta extends Object implements Comparable<Conta> {
 
     private static int total = 0;
     protected double saldo;
@@ -96,7 +98,29 @@ public abstract class Conta {
     }
 
     @Override
+    public boolean equals(Object ref) {
+
+        Conta outra = (Conta) ref;
+
+        if (this.agencia != outra.agencia && this.numero != outra.numero) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int compareTo(Conta cc) {
+        return Double.compare(this.saldo, cc.saldo);
+    }
+
+    @Override
     public String toString() {
-        return "Agencia: " + this.getAgencia() + "\nNumero: " + this.getNumero() + "\nTitular: " + this.getTitular().getNome() + "\nSaldo: R$" + this.getSaldo();
+        if (this.getTitular() != null) {
+//            return "Agencia: " + this.getAgencia() + "\nNumero: " + this.getNumero() + "\nTitular: " + this.getTitular().getNome() + "\nSaldo: R$" + this.getSaldo();
+            return "Agencia: " + this.getAgencia() + "\tNumero: " + this.getNumero() + "\tTitular: " + this.getTitular().getNome() + "\tSaldo: R$" + this.getSaldo();
+        } else {
+//            return "Agencia: " + this.getAgencia() + "\nNumero: " + this.getNumero() + "\nTitular: Nao Atribuido" + "\nSaldo: R$" + this.getSaldo();
+            return "Agencia: " + this.getAgencia() + "\tNumero: " + this.getNumero() + "\tTitular: Nao Atribuido" + "\tSaldo: R$" + this.getSaldo();
+        }
     }
 }
